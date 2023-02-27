@@ -36,7 +36,7 @@ def query_sql(cursor, query):
     return cursor
 
 
-# Add a new job (needs a change)
+# Add a new job
 def add_new_job(cursor, jobdetails):
     # extract all required columns
     description = html2text.html2text(jobdetails['description'])
@@ -50,14 +50,14 @@ def add_new_job(cursor, jobdetails):
      # %s is what is needed for Mysqlconnector as SQLite3 uses ? the Mysqlconnector uses %s
     return query_sql(cursor, query)
 
-# Check if new job (needs a change)
+# Check if new job
 def check_if_job_exists(cursor, jobdetails):
     ##Add your code here
     id = jobdetails['id']
     query = "SELECT * FROM jobs WHERE job_id = \"%s\"" % id
     return query_sql(cursor, query)
 
-# Deletes job (needs a change)
+# Deletes job
 def delete_job(cursor, jobdetails):
     ##Add your code here
     id = jobdetails ['id']
